@@ -5,7 +5,7 @@
 		{"id":"4e8b284386bfc5de","type":"file","file":"Диплом/Лор и сюжет/фото/Pasted image 20241006144813.png","x":-160,"y":-1360,"width":400,"height":225},
 		{"id":"4fbc4d1b856c86ae","type":"file","file":"Диплом/Лор и сюжет/фото/Pasted image 20241006144716.jpg","x":360,"y":-1360,"width":302,"height":400},
 		{"id":"1498055b35d3a250","type":"file","file":"Диплом/Лор и сюжет/фото/Pasted image 20241006145012.png","x":-114,"y":-80,"width":776,"height":520},
-		{"id":"914f10170dba9825","x":760,"y":-147,"width":400,"height":225,"type":"file","file":"Диплом/Лор и сюжет/фото/ba8f1a0c95c0376fa7edc82ffb2452b3.gif"},
+		{"id":"914f10170dba9825","type":"file","file":"Диплом/Лор и сюжет/фото/ba8f1a0c95c0376fa7edc82ffb2452b3.gif","x":760,"y":-147,"width":400,"height":225},
 		{"id":"d06793e27f050f76","type":"file","file":"Диплом/Лор и сюжет/фото/65e8c1a0c05d8ad036ab4d2795c8b103.gif","x":511,"y":-709,"width":400,"height":300}
 	],
 	"edges":[]
