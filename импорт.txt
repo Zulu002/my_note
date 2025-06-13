@@ -21,3 +21,5 @@ https://github.com/Nadezhda321/mozaika
 https://www.perplexity.ai/
 
 стэк PySide6, mysql.connector
+
+после добавления всех данных сделать дамп бд и сделать ир диаграмму поменять так чтобы показывались не только связи таблиц
