@@ -9,3 +9,4 @@ IGNORE 1 ROWS; если есть в первой строчки названия
 https://chat.qwen.ai/
 https://chat.deepseek.com/
 https://github.com/Nadezhda321/mozaika
+https://www.perplexity.ai/
