@@ -6,6 +6,15 @@ ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS; если есть в первой строчки названия столбцов
 
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/authors.csv' 
+INTO TABLE authors
+CHARACTER SET cp1251 кодировка русская
+FIELDS TERMINATED BY ';'
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+(name, @date_var, country) - толька определенные поля
+SET birth_date = STR_TO_DATE(@date_var, '%d.%m.%Y'); для парвильной даты
+
 https://chat.qwen.ai/
 https://chat.deepseek.com/
 https://github.com/Nadezhda321/mozaika
