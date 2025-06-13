@@ -1,0 +1,11 @@
+сохронять в csv разделитель запятая
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/authors.csv' 
+INTO TABLE authors
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS; если есть в первой строчки названия столбцов
+
+https://chat.qwen.ai/
+https://chat.deepseek.com/
+https://github.com/Nadezhda321/mozaika

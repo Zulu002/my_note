@@ -1,0 +1,49 @@
+-- Создаем базу данных
+CREATE DATABASE IF NOT EXISTS book_catalog;
+USE book_catalog;
+
+-- Таблица авторов
+CREATE TABLE IF NOT EXISTS authors (
+    author_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    birth_date DATE,
+    country VARCHAR(50)
+);
+
+-- Таблица жанров
+CREATE TABLE IF NOT EXISTS genres (
+    genre_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    description TEXT
+);
+
+-- Таблица книг
+CREATE TABLE IF NOT EXISTS books (
+    book_id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(200) NOT NULL,
+    author_id INT,
+    genre_id INT,
+    publication_year INT,
+    isbn VARCHAR(20),
+    price DECIMAL(10, 2),
+    quantity INT DEFAULT 0,
+    FOREIGN KEY (author_id) REFERENCES authors(author_id),
+    FOREIGN KEY (genre_id) REFERENCES genres(genre_id)
+);
+
+-- Вставляем тестовые данные
+INSERT INTO authors (name, birth_date, country) VALUES
+('Лев Толстой', '1828-09-09', 'Россия'),
+('Фёдор Достоевский', '1821-11-11', 'Россия'),
+('Джордж Оруэлл', '1903-06-25', 'Великобритания');
+
+INSERT INTO genres (name, description) VALUES
+('Роман', 'Крупное повествовательное произведение'),
+('Фантастика', 'Произведения, основанные на научных или фантастических допущениях'),
+('Классика', 'Признанные образцовые произведения литературы');
+
+INSERT INTO books (title, author_id, genre_id, publication_year, isbn, price, quantity) VALUES
+('Война и мир', 1, 1, 1869, '978-5-389-06256-6', 1200.50, 10),
+('Анна Каренина', 1, 1, 1877, '978-5-389-06257-3', 950.00, 8),
+('Преступление и наказание', 2, 1, 1866, '978-5-389-06258-0', 850.75, 12),
+('1984', 3, 2, 1949, '978-5-389-06259-7', 700.00, 15);
