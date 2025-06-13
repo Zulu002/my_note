@@ -1,0 +1,101 @@
+Шпаргалка по созданию таблиц в MySQL
+1. Базовый синтаксис создания таблицы
+sql
+CREATE TABLE имя_таблицы (
+    столбец1 тип_данных [ограничения],
+    столбец2 тип_данных [ограничения],
+    ...
+    [ограничения_таблицы]
+);
+2. Основные типы данных
+Целые числа:
+
+TINYINT, SMALLINT, INT, BIGINT
+
+Дробные числа:
+
+FLOAT, DOUBLE, DECIMAL(m,n)
+
+Строки:
+
+CHAR(n) (фикс. длина), VARCHAR(n) (перем. длина)
+
+TEXT (длинный текст)
+
+Дата и время:
+
+DATE, TIME, DATETIME, TIMESTAMP
+
+Логический тип:
+
+BOOLEAN (аналог TINYINT(1))
+
+3. Ограничения (constraints)
+PRIMARY KEY - первичный ключ
+
+FOREIGN KEY - внешний ключ
+
+NOT NULL - запрет NULL значений
+
+UNIQUE - уникальные значения
+
+DEFAULT - значение по умолчанию
+
+AUTO_INCREMENT - автоинкремент
+
+CHECK - проверка условия
+
+4. Пример создания таблицы с PK и FK
+sql
+CREATE TABLE users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE orders (
+    order_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    amount DECIMAL(10,2) NOT NULL,
+    order_date DATE NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+5. Изменение существующей таблицы
+sql
+-- Добавить столбец
+ALTER TABLE users ADD COLUMN phone VARCHAR(20);
+
+-- Удалить столбец
+ALTER TABLE users DROP COLUMN phone;
+
+-- Изменить тип столбца
+ALTER TABLE users MODIFY COLUMN email VARCHAR(150);
+
+-- Добавить ограничение
+ALTER TABLE orders ADD CONSTRAINT fk_user
+FOREIGN KEY (user_id) REFERENCES users(user_id);
+6. Удаление таблицы
+sql
+DROP TABLE IF EXISTS имя_таблицы;
+7. Полезные советы
+Всегда указывайте NOT NULL для обязательных полей
+
+Используйте AUTO_INCREMENT для PK
+
+Для денежных значений используйте DECIMAL
+
+Именуйте FK в формате fk_родительская_таблица
+
+Используйте IF EXISTS/IF NOT EXISTS для избежания ошибок
+
+8. Шаблон для быстрого создания
+sql
+CREATE TABLE table_name (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    column1 VARCHAR(100) NOT NULL,
+    column2 INT,
+    column3 DECIMAL(10,2) DEFAULT 0.00,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (column2) REFERENCES other_table(id)
+);
